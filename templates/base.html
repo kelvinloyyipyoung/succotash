@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelvin Young - Developer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <svg viewBox="0 0 100 100" fill="#222">
+                    <path d="M20,20 L80,20 L50,80 Z"></path>
+                </svg>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('about')}}">About</a></li>
+                <li><a href="{{ url_for('contact')}}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    
+
+   
+</body>
+</html>
