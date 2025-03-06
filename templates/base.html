@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelvin Young - Developer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
     <header>
@@ -24,37 +25,15 @@
     </header>
 
     <main>
-        {% block content %}{% endblock %}
+        <div class="main-content">
+            <section class="intro">
+                <h1>{{ title }}</h1>
+                <p>{{ body }}</p>
+            </section>
+        </div>
+        {% block contact %}{% endblock %}
+        <div class="separator"></div>
+        {% block projects %}{% endblock %}
     </main>
-
-    <script>
-        let pos = localStorage.getItem('bgPos') || 0;
-        let startTime = localStorage.getItem('startTime') || Date.now();
-        const duration = 15000; // 15 seconds in milliseconds
-        
-        function easeInOut(t) {
-            // Recreates the 'ease' timing function
-            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        }
-        
-        function animateBackground() {
-            // Store startTime if it's new
-            if (!localStorage.getItem('startTime')) {
-                localStorage.setItem('startTime', startTime);
-            }
-            
-            const elapsed = (Date.now() - startTime) % duration;
-            const progress = elapsed / duration;
-            
-            // Calculate position using the ease function (0 to 100)
-            pos = easeInOut(progress) * 100;
-            
-            document.body.style.backgroundPosition = `${pos}% 50%`;
-            localStorage.setItem('bgPos', pos);
-            requestAnimationFrame(animateBackground);
-        }
-
-        animateBackground();
-    </script>
 </body>
 </html>

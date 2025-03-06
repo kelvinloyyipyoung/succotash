@@ -84,8 +84,9 @@ nav ul li a:hover {
     font-size: 64px;
     font-weight: 400;
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     font-family: 'DM Serif Display', serif;
+    white-space: pre-line;
 }
 
 .intro p,
@@ -109,24 +110,94 @@ nav ul li a:hover {
 }
 
 /* Project section */
-.project {
+.project-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 4rem;
+    position: relative;
+}
+
+.project-content {
+    max-width: 50%;
+    padding-right: 4rem;
 }
 
 .project-title {
-    font-size: 48px;
-    font-weight: 400;
-    width: 40%;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.project-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #444;
 }
 
 .project-image {
-    width: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.tech-stack {
+    margin: 2rem 0;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    background: rgba(0,0,0,0.05);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links a {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 25px;
+    text-decoration: none;
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-section {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .project-content {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .project-title {
+        font-size: 3rem;
+    }
 }
