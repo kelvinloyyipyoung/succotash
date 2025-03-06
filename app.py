@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from static.projects.projects import PROJECTS
 
 app = Flask(__name__)
 
@@ -7,7 +8,8 @@ def index():
     title = "Hello, I'm Kelvin."
     title_2 = "I'm a developer."
     body = "I make random tools and put them on this website."
-    return render_template('index.html', title=title, title_2=title_2, body=body)
+    context = PROJECTS
+    return render_template('index.html', title=title, title_2=title_2, body = body, context = context)
 
 @app.route('/about')
 def about():
