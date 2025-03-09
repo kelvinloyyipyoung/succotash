@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
-{% block projects %}
+{% block content %}
     <div class="main-content">
+        <section class="intro">
+            <h1>{{ title }}</h1>
+            <p>{{ body }}</p>
+        </section>
+    </div>
+{% endblock %}
+{% block projects %}
+    <div class="projects-container">
         {% for project in projects %}
             <section class="project-section">
                 <div class="project-content">
                     <h2 class="project-title">{{ project.title }}</h2>
                     <p class="project-description">{{ project.description }}</p>
-                    <div class="tech-stack">
+                    <div class="tech-stack tag-container">
                         {% for tech in project.technologies %}
-                            <span class="tech-tag">{{ tech }}</span>
+                            <span class="tag tag-{{ tech.lower() }}">{{ tech }}</span>
                         {% endfor %}
                     </div>
                     <div class="project-links">
@@ -17,15 +25,10 @@
                             <a href="{{ project.github_link }}" target="_blank">GitHub</a>
                         {% endif %}
                         {% if project.live_link %}
-                            <a href="{{ project.live_link }}" target="_blank">Live Demo</a>
+                            <a href="{{ project.live_link }}" target="_blank">Open in a new tab</a>
                         {% endif %}
                     </div>
                 </div>
-                {% if project.image %}
-                    <div class="project-image">
-                        <img src="{{ project.image }}" alt="{{ project.title }} preview">
-                    </div>
-                {% endif %}
             </section>
         {% endfor %}
     </div>

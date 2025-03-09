@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
-{% block contact %}
-<div class="main-content">
-    <section class="intro">
-    {% for key, value in contact_info.items() %}
-        <p>{{ key }}: {{ value }}</p>
-    {% endfor %}
+{% block content %}
+    <div class="main-content">
+        <section class="intro">
+            <h1>{{ title }}</h1>
+            <p>{{ body }}</p>
 
-    {% for key, value in links.items() %}
-        <p>{{ key }}: <a href="{{ value }}">{{ value }}</a></p>
-    {% endfor %}
-    </section>
-</div>
+            {% for key, value in contact_info.items() %}
+            <p>{{ key }}: {{ value }}</p>
+            {% endfor %}
+
+            {% for key, value in links.items() %}
+            <p>{{ key }}: <a href="{{ value }}">{{ value }}</a></p>
+            {% endfor %}
+        </section>
+    </div>
 {% endblock %}
